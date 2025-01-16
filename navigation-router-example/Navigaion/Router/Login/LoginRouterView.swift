@@ -16,7 +16,7 @@ struct LoginRouterView: View {
                 .navigationDestination(for: LoginRoute.self) { destination in
                     switch destination {
                     case .verify:
-                        VerifyRegisterView()
+                        VerifyLoginView()
                     }
                 }
         }

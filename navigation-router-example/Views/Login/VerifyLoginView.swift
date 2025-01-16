@@ -19,7 +19,7 @@ struct VerifyLoginView: View {
                 .bold()
 
             Button("To Main") {
-                storeDataObject.someString = "Verfiy from Register"
+                storeDataObject.someString = "Verfiy from Login"
                 appRouter.showScreen(to: AppDestination.main)
             }
             

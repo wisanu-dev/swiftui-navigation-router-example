@@ -37,7 +37,7 @@ struct ContentView: View {
                     case .landing:
                         LandingRouterView()
                     case .main:
-                        Text("main")
+                        MainRouterView()
                     }
                 }
         }
