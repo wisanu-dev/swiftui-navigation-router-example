@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
+    @EnvironmentObject var storeDataObject: StoreDataObject
     @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var mainRouter: MainRouter
     
@@ -18,10 +18,12 @@ struct SettingsView: View {
                 .bold()
             
             Button("Onboard Worker") {
+                storeDataObject.someString = "Onboard Worker"
                 mainRouter.showScreen(to: MainDestination.onboard_worker)
             }
             
             Button("Profile") {
+                storeDataObject.someString = "Edit Profile"
                 mainRouter.push(to: MainRoute.profile)
             }
             

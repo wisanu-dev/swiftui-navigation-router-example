@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct OnboardMainView: View {
+    @EnvironmentObject var storeDataObject: StoreDataObject
     @EnvironmentObject var mainRouter: MainRouter
     @Environment(\.navigationPathDelegate) var navigationPathDelegate
     
     var body: some View {
         VStack(spacing: 32) {
-            Text("Onboard Main")
+            Text("\(storeDataObject.someString ?? "") Main")
                 .bold()
             
             Button("Onboard 10") {
@@ -41,4 +42,5 @@ struct OnboardMainView: View {
 
 #Preview {
     OnboardMainView()
+        .environmentObject(StoreDataObject())
 }

@@ -21,6 +21,7 @@ struct HomeView: View {
             Text(storeDataObject.someString ?? "")
             
             Button("Onboard Worker") {
+                storeDataObject.someString = "Onboard Worker"
                 mainRouter.showScreen(to: MainDestination.onboard_worker)
             }
             
