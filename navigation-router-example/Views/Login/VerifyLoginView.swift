@@ -1,26 +1,26 @@
 //
-//  RegisterView.swift
+//  VerifyLoginView.swift
 //  navigation-router-example
 //
-//  Created by Wisanu Paunglumjeak on 15/1/2568 BE.
+//  Created by Wisanu Paunglumjeak on 16/1/2568 BE.
 //
 
 import SwiftUI
 
-struct RegisterView: View {
+struct VerifyLoginView: View {
     
     @EnvironmentObject var landingRouter: LandingRouter
-    @EnvironmentObject var registerRouter: RegisterRouter
+    @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var storeDataObject: StoreDataObject
     
     var body: some View {
         VStack(spacing: 32) {
-            Text("Register")
+            Text("Verify Login")
                 .bold()
-            
-            Button("Verify") {
-                storeDataObject.someString = "Hello from Register"
-                registerRouter.push(to: RegisterRoute.onboard_user)
+
+            Button("To Main") {
+                storeDataObject.someString = "Verfiy from Register"
+                appRouter.showScreen(to: AppDestination.main)
             }
             
             Button("Dismiss") {
@@ -31,5 +31,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView()
+    VerifyLoginView()
 }

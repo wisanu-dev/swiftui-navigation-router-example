@@ -7,35 +7,10 @@
 
 import SwiftUI
 
-enum PreLoginScreenDestination: Identifiable {
-    case landing, main
-    
-    var id: UUID {
-        UUID()
-    }
-    
-}
-
-enum LanguageRoute: Identifiable {
-    case language, selectLanguage
-    
-    var id: UUID {
-        UUID()
-    }
-}
-
-enum AppRoute: Identifiable {
-    case walkthrough, termsAndCond
-    
-    var id: UUID {
-        UUID()
-    }
-}
-
 final class AppRouter: ObservableObject, NavigationPathDelegate {
     
     @Published var path: NavigationPath
-    @Published var screenDestination: PreLoginScreenDestination?
+    @Published var screenDestination: AppDestination?
     
     init(path: NavigationPath = NavigationPath()) {
         self.path = path
@@ -46,7 +21,7 @@ final class AppRouter: ObservableObject, NavigationPathDelegate {
     }
     
     func showScreen<T>(to destination: T) where T : Hashable {
-        screenDestination = destination as? PreLoginScreenDestination
+        screenDestination = destination as? AppDestination
     }
     
     func dismissScreen() {

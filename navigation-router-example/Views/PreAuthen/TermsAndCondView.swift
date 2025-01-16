@@ -21,7 +21,7 @@ struct TermsAndCondView: View {
             
             Button("to Landing") {
                 appRouter.navigateToRoot()
-                appRouter.showScreen(to: PreLoginScreenDestination.landing)
+                appRouter.showScreen(to: AppDestination.landing)
             }
         }
     }

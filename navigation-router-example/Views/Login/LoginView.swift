@@ -9,27 +9,23 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @Environment(\.router) var router
-    @EnvironmentObject var storeData: StoreDataObject
+    @EnvironmentObject var landingRouter: LandingRouter
+    @EnvironmentObject var loginRouter: LoginRouter
+    @EnvironmentObject var storeDataObject: StoreDataObject
     
     var body: some View {
         VStack(spacing: 32) {
             Text("Login")
                 .bold()
             
-            Text(storeData.someString ?? "")
+            Text(storeDataObject.someString ?? "")
                 .bold()
             
             Button("Verify") {
-                
+                loginRouter.push(to: LoginRoute.verify)
             }
-            
-            Button("Present Action Sheet") {
-                
-            }
-            
             Button("Dismiss") {
-                router.dismissScreen()
+                landingRouter.dismissScreen()
             }
         }
     }

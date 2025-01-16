@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var appRouter = AppRouter()
+    @StateObject private var storeDataObject = StoreDataObject()
     
     var body: some View {
         NavigationStack(path: $appRouter.path) {
@@ -17,6 +18,7 @@ struct ContentView: View {
                     switch destination {
                     case .language:
                         LanguageView()
+                            .navigationBarBackButtonHidden(true)
                     case .selectLanguage:
                         SelectLanguageView()
                     }
@@ -25,6 +27,7 @@ struct ContentView: View {
                     switch destination {
                     case .walkthrough:
                         WalkthroughView()
+                            .navigationBarBackButtonHidden(true)
                     case .termsAndCond:
                         TermsAndCondView()
                     }
@@ -32,13 +35,14 @@ struct ContentView: View {
                 .fullScreenCover(item: $appRouter.screenDestination) { destination in
                     switch destination {
                     case .landing:
-                        LandingView()
+                        LandingRouterView()
                     case .main:
                         Text("main")
                     }
                 }
         }
         .environmentObject(appRouter)
+        .environmentObject(storeDataObject)
     }
 }
 

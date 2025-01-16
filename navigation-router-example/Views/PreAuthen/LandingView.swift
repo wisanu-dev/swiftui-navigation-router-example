@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LandingView: View {
     
-    @Environment(\.router) var router
-    @EnvironmentObject var storeData: StoreDataObject
+    @EnvironmentObject var landingRouter: LandingRouter
+    @EnvironmentObject var storeDataObject: StoreDataObject
     
     var body: some View {
         VStack(spacing: 32) {
@@ -18,17 +18,12 @@ struct LandingView: View {
                 .bold()
             
             Button("To Login") {
-                storeData.someString = "Hello from Login"
-                router.showScreen(.fullScreenCover) { _ in
-                    LoginView()
-                }
+                storeDataObject.someString = "Hello from Login"
+                landingRouter.showScreen(to: LandingDestination.login)
             }
             
             Button("To Register") {
-                storeData.someString = "Hello from Register" 
-                router.showScreen(.fullScreenCover) { _ in
-                    RegisterView()
-                }
+                landingRouter.showScreen(to: LandingDestination.register)
             }
         }
     }

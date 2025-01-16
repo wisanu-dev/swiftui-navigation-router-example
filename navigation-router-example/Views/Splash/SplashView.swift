@@ -36,13 +36,13 @@ struct SplashView: View {
             
             Button("Landing") {
                 appRouter.showScreen(
-                    to: PreLoginScreenDestination.landing
+                    to: AppDestination.landing
                 )
             }
             
             Button("Main") {
                 appRouter.showScreen(
-                    to: PreLoginScreenDestination.main
+                    to: AppDestination.main
                 )
             }
         }

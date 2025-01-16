@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
-import SwiftfulRouting
 
 struct VerifyRegisterView: View {
     
-    @Environment(\.router) var router
+    @EnvironmentObject var appRouter: AppRouter
+    @EnvironmentObject var landingRouter: LandingRouter
+    @EnvironmentObject var storeDataObject: StoreDataObject
     
     var body: some View {
         VStack(spacing: 32) {
@@ -18,20 +19,17 @@ struct VerifyRegisterView: View {
                 .bold()
             
             Button("To Main") {
-                
+                storeDataObject.someString = "Verfiy from Register"
+                appRouter.showScreen(to: AppDestination.main)
             }
             
             Button("Back to Login") {
-                router.showScreen(.fullScreenCover) { router in
-                    LoginView()
-                }
+                landingRouter.showScreen(to: LandingDestination.login)
             }
         }
     }
 }
 
 #Preview {
-    RouterView { _ in
-        LandingView()
-    }
+    LandingView()
 }
